@@ -5,6 +5,8 @@
  */
 
 let app = require('./app');
+let configureMongoose = require('./config/mongoose');
+configureMongoose();
 let debug = require('debug')('infr3120-assignment-3:server');
 let http = require('http');
 
