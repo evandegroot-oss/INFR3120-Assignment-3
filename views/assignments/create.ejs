@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/content/app.css">
+</head>
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main class="container my-5">
+
+        <div class="mb-4">
+            <h1>Create Assignment</h1>
+            <p class="text-muted">Enter the details for your new assignment.</p>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+
+                <form action="/assignments/create" method="POST">
+
+                    <div class="mb-3">
+                        <label for="assignmentName" class="form-label">Assignment Name</label>
+                        <input type="text" class="form-control" id="assignmentName"
+                            name="assignmentName" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="course" class="form-label">Course</label>
+                        <input type="text" class="form-control" id="course"
+                            name="course" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description"
+                            name="description" rows="4" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dueDate" class="form-label">Due Date</label>
+                        <input type="date" class="form-control" id="dueDate"
+                            name="dueDate" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" name="status">
+                            <option value="Not Started">Not Started</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Assignment
+                    </button>
+
+                    <a href="/assignments" class="btn btn-secondary">
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+        </div>
+
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
